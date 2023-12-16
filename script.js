@@ -24,7 +24,7 @@ function createTable(data) {
     return table;
 }
 
-// 更新 loadData 函数
+// 加载并显示CSV数据的函数
 function loadData() {
     fetch(dataUrl)
         .then(response => response.text())  // 获取纯文本数据
