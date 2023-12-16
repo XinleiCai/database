@@ -26,21 +26,14 @@ function createTable(data) {
 
 // 更新 loadData 函数
 function loadData() {
-    // ... 前面的代码不变 ...
     fetch(dataUrl)
         .then(response => response.text())  // 获取纯文本数据
         .then(csv => {
             const data = parseCSV(csv);
             const container = document.getElementById('data-container');
-            container.innerHTML = '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+            container.innerHTML = createTable(data);  // 使用 createTable 函数显示数据
         })
         .catch(error => console.error('Error loading data:', error));
-    // 更新数据显示部分
-    .then(csv => {
-        const data = parseCSV(csv);
-        const container = document.getElementById('data-container');
-        container.innerHTML = createTable(data);
-    })
 }
 
 // 页面加载时调用 loadData 函数
